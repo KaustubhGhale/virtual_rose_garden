@@ -7,14 +7,59 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="{{ url_for('static', filename='music1.mp3') }}" type="audio/mp3">
+    </audio>
+
     <h1>🌹 Welcome to Your Virtual Rose Garden 🌹</h1>
-    
-    <button id="plantRoseBtn">Plant a Rose 🌹</button>
+    <p id="romantic-message">Click to plant your first rose! 🌹</p>
+
+    <button id="plantRoseBtn" onclick="plantRose()">Plant a Rose 🌹</button>
 
     <div id="garden">
         <!-- Roses will appear here -->
     </div>
 
+    <p id="rose-count">Roses Planted: 0</p>
+
+    <!-- Hidden Love Letter (Appears at 10 Roses) -->
+    <div id="love-letter" style="display: none;">
+        <h2>💌 A Special Note for You 💌</h2>
+        <p>YOU MAKE MY WORLD BEAUTIFUL,JUST LIKE THESE ROSES. I LOVE YOU! ❤️</p>
+        <p> My love, every moment with you feels like a gift.</p> 
+        <p> Your kindness, your laughter, and the way you light up every room you walk into fill my heart with warmth.</p>
+        <p> You’re the reason I smile a little brighter and laugh a little louder. </p>
+        <p> Just as these roses grow and bloom, my love for you continues to grow every damn day. </p> 
+        <p> You are my support, my best friend, and the love of my life. </p>
+        <p> I am so incredibly lucky to have you my baby, and I promise to cherish you always and forever HUMESHA. </p>
+        <p> Thank you for being the most amazing person in my life.</p>
+        <p> I love you sabse zyaada, and there’s no one else I would rather have by my side.</p>
+    </div>
+
+    <!-- Hidden Surprise (Appears at 20 Roses) -->
+    <button id="surprise-btn" style="display: none;" onclick="showSurprise()">Click for a Surprise! 🎁</button>
+
+    <!-- Floating Hearts -->
+    <script>
+        function createHeart() {
+            let heart = document.createElement("span");
+            heart.innerHTML = "❤️";
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = "100vh";
+            heart.style.position = "absolute";
+            heart.style.fontSize = "20px";
+            heart.style.animation = "float 3s linear infinite";
+
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 3000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
