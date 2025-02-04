@@ -1,37 +1,125 @@
+/* General Styling */
 body {
     text-align: center;
     font-family: Arial, sans-serif;
-    background-color: #ffebf3;
+    background: linear-gradient(to right, #ffebf3, #ffe0e9);
+    overflow: hidden; /* Prevent scrollbars due to floating hearts */
 }
 
+/* Heading */
 h1 {
     color: #d63384;
+    font-size: 28px;
+    margin-top: 20px;
 }
 
+/* Romantic Message */
+#romantic-message {
+    font-size: 18px;
+    color: #b02a74;
+    margin-bottom: 15px;
+}
+
+/* Plant Rose Button */
 #plantRoseBtn {
     background-color: #ff4d88;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 18px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
 }
 
+#plantRoseBtn:hover {
+    background-color: #e6397a;
+    transform: scale(1.1);
+}
+
+/* Rose Garden */
 #garden {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
 }
 
+/* Rose Animation */
 .rose {
-    font-size: 30px;
-    animation: bloom 1s ease-in-out;
+    font-size: 35px;
+    animation: bloom 1s ease-in-out, floatUp 5s ease-in-out infinite alternate;
+    position: relative;
 }
 
+/* Blooming effect */
 @keyframes bloom {
-    from { transform: scale(0.5); }
-    to { transform: scale(1); }
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Floating effect for a magical touch */
+@keyframes floatUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* Rose Counter */
+#rose-count {
+    font-size: 20px;
+    color: #d63384;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Love Letter */
+#love-letter {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 60%;
+    margin: auto;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+    max-height: 300px; /* Limit the height */
+    overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+
+/* Surprise Button */
+#surprise-btn {
+    background-color: #ffcc00;
+    color: black;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.3s ease-in-out;
+    display: none; /* Initially hidden */
+}
+
+#surprise-btn:hover {
+    background-color: #ff9900;
+    transform: scale(1.1);
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    font-size: 25px;
+    color: red;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(0); opacity: 1; left: 50%; }
+    to { transform: translateY(-150px); opacity: 0; left: calc(50% + 30px); }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
